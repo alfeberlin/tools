@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for i in {0..8}
+do
+  printf "\e[?47h\e[H\e[7m"
+  head -c $(($(tput lines) * $(tput cols))) /dev/zero | tr '\0' ' '
+  sleep 0.1
+  printf "\e[?47l"
+  sleep 0.5
+done
+
